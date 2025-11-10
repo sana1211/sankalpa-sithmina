@@ -10,10 +10,11 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  base: "/sankalpa-sithmina",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/sankalpa-sithmina"
+  
 });
