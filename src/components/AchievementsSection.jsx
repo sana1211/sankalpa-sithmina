@@ -2,6 +2,12 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { ArrowRight } from "lucide-react";
+import web from "../../public/Achievement/web.png";
+import AWS from "../../public/Achievement/AWS.png";
+import computer from "../../public/Achievement/computer.png";
+import google from "../../public/Achievement/google.png";
+import python from "../../public/Achievement/python.png";
+
 
 const certificates = [
   {
@@ -9,42 +15,35 @@ const certificates = [
     title: "Web Design for Beginners",
     issuer: "University of Moratuwa (CODL)",
     date: "Jun 01, 2022",
-    src: "/Achievement/web.jpg",
+    src: web,
   },
   {
     id: 2,
     title: "Amazon Q Developer Fundamentals Badge",
     issuer: "AWS Training & Certification",
     date: "Nov 01, 2025",
-    src: "/Achievement/AWS.jpg",
+    src: AWS,
   },
   {
     id: 3,
     title: "Sri Lanka Computer Competency License",
     issuer: "Ranaviru IT Training Institute",
     date: "Apr 08, 2019",
-    src: "/Achievement/computer.jpg",
+    src: computer,
   },
   {
     id: 4,
     title: "Fundamentals of Digital Marketing",
     issuer: "Google Digital Garage",
     date: "Oct 21, 2021",
-    src: "/Achievement/google.jpg",
+    src: google,
   },
   {
     id: 5,
-    title: "Diploma in Ticketing Reservations & Marketing (Distinction)",
-    issuer: "IAAC, Colombo — Sri Lanka",
-    date: "Jan 09, 2023",
-    src: "/Achievement/iaac.jpg",
-  },
-  {
-    id: 6,
     title: "Python for Beginners",
     issuer: "University of Moratuwa (CSE)",
     date: "Jun 01, 2022",
-    src: "/Achievement/python.jpg",
+    src: python,
   },
 ];
 
