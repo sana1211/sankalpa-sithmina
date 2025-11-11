@@ -48,7 +48,7 @@ const certificates = [
 ];
 
 export const AchievementsSection = () => {
-  const [preview, setPreview] = useState(null); // {src, title} | null
+  const [preview, setPreview] = useState(null); 
 
   return (
     <section id="achievements" className="py-24 px-4 relative">

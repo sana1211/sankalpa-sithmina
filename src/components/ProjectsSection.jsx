@@ -56,7 +56,7 @@ const projects = [
     image: car,
     tags: ["Arduino"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/sana1211/Arduino-Bluetooth-Robot-Car-with-Remote-Control",
   },
   {
     id: 6,
