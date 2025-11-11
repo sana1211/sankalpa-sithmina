@@ -17,12 +17,24 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 10); // fixed: scrollY (not screenY)
     };
-
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Smooth scroll handler for both desktop & mobile
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav
       className={cn(
@@ -34,6 +46,7 @@ export const Navbar = () => {
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#hero"
+          onClick={(e) => handleNavClick(e, "#hero")}
         >
           <span className="relative z-10">
             <span className="text-glow text-foreground"> Sankalpa </span>{" "}
@@ -47,6 +60,7 @@ export const Navbar = () => {
             <a
               key={key}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               {item.name}
@@ -55,7 +69,6 @@ export const Navbar = () => {
         </div>
 
         {/* mobile nav */}
-
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50"
@@ -66,7 +79,7 @@ export const Navbar = () => {
 
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
@@ -78,8 +91,8 @@ export const Navbar = () => {
               <a
                 key={key}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </a>

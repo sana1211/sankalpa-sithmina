@@ -4,9 +4,18 @@ import cv from "../../public/CV/sankalpa sithmina.pdf";
 export const AboutSection = () => {
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = cv; // Place your CV file in the /public directory
-    link.download = "My_CV.pdf"; // Optional: rename downloaded file
+    link.href = cv; // Path to your CV file in /public/CV/
+    link.download = "Sankalpa_Sithmina_CV.pdf";
     link.click();
+  };
+
+  // Smooth scroll to Contact section
+  const handleScrollToContact = (e) => {
+    e.preventDefault();
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -33,7 +42,11 @@ export const AboutSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               {/* Smooth scroll to contact section */}
-              <a href="#ContactSection" className="cosmic-button">
+              <a
+                href="#contact"
+                onClick={handleScrollToContact}
+                className="cosmic-button"
+              >
                 Get In Touch
               </a>
 
